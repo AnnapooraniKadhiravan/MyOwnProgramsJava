@@ -1,0 +1,40 @@
+// write a program with abstract, default, static, private methods and with interface 
+
+interface Building {
+    void land();
+    
+    default void materials(){
+        System.out.println("Private method is called...........");
+        owner();
+        System.out.println("To start building, we need materials");
+    }
+    
+    static void workers(){
+        System.out.println("We need workers to build");
+    }
+    
+    private void owner(){
+        System.out.println("Aarudhra Dev Constructions");
+    }
+}
+
+class Rental implements Building {
+    public void land(){
+        System.out.println("100 acres of Land and gated community");
+    }
+    public void register(){
+        System.out.println("Register your details for Rental house in this building");
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Rental rr = new Rental();
+		rr.materials();
+		Building.workers();
+		rr.land();
+		rr.register();
+		
+	}
+}
