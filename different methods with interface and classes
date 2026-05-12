@@ -1,0 +1,84 @@
+// Define an interface
+interface Office {
+    // Abstract Method 
+    void swipeIn();
+    void login();
+    
+    // default method (java 8+)
+    default void odc(){
+        projectName();
+        System.out.println("I do have my ODC access");
+    }
+    
+    //Static method (java 8+)
+    static void pantry(){
+        System.out.println("In Pantry we can have tea/coffee");
+    }
+    
+    //private method (Java 9+)
+    private void projectName() {
+        System.out.println("Project Name is One Web");
+    }
+}
+
+//implementsthe interface in a class
+class Wipro implements Office {
+    @Override
+    public void swipeIn(){
+        System.out.println("Swipe In using ID card");
+    }
+    
+    @Override
+    public void login(){
+        System.out.println("Login using employee credentials in your laptop");
+    }
+    
+    //Optionally Override the default method
+    // we can Override default method in interface
+    
+    @Override
+    public void odc(){
+        System.out.println("To enter into ODC, you must have access");
+    }
+}
+
+// Another class implementing the interface
+
+class Zoho implements Office {
+    @Override
+    public void swipeIn(){
+        System.out.println("Swipe In using ID card");
+    }
+    
+    @Override
+    public void login(){
+        System.out.println("Login using employee credentials in your laptop");
+    }
+    
+    // No Explicit odc method, it implicitly takes default implementation
+}
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    System.out.println("-------------------------------");
+	    System.out.println("Wipro Office");
+	    System.out.println("-------------------------------");
+		Wipro ww = new Wipro();
+		ww.swipeIn();
+		ww.login();
+		ww.odc();
+		Office.pantry();
+		System.out.println("-------------------------------");
+		System.out.println("Zoho Office");
+		System.out.println("-------------------------------");
+		Zoho zo = new Zoho();
+		zo.swipeIn();
+		zo.login();
+		zo.odc();
+		Office.pantry();
+		System.out.println("-------------------------------");
+		
+	}
+}
