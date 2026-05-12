@@ -1,0 +1,25 @@
+// Final Method can be given in abstract class but in final class abstract methods are not possible
+// Here abstract methods need to be inherited but when a class is final it cannot be inherited, so it is not possible for abstract methods in final class
+// Similarly abstract and final are not possible together 
+// Reason : Final is the one where it cannot be inherited, overridden , assign new values whereas abstract need to be inherited/overridden to give definition
+
+abstract class Vehicle {
+    final void horn(){
+        System.out.println("All Vehicles have horn");
+    }
+    abstract void types();
+}
+class Car extends Vehicle {
+    @Override
+    public void types(){
+        System.out.println("Car is four wheeler type");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Car cc = new Car();
+		cc.types();
+		cc.horn();
+	}
+}
