@@ -57,3 +57,46 @@ public class OverrideExample
 		System.out.println("p1.toString()--> "+p1.toString());
 	}
 }
+
+-----------------------------------------------------------------------------------
+
+import java.util.Objects;
+class Employee {
+    String id;
+    String name;
+    double salary;
+    
+    Employee(String id,String name,double salary){
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+    @Override
+    public boolean equals(Object o){
+        //same reference check
+        if(this == o) return true;
+        System.out.println("values stored in this: "+ this);
+        System.out.println("values stored in o: "+o);
+        if(!(o instanceof Employee)) return false;
+        Employee e = (Employee) o;
+        return Double.compare(e.salary,salary)== 0 && Objects.equals(id,e.id) && Objects.equals(name,e.name);
+    }
+    @Override
+    public int hashCode(){
+        return Objects.hash(id,name,salary);
+    }
+    @Override
+    public String toString(){
+        return "Employee{id="+id+",name="+name+",salary="+salary+"}";
+    }
+}
+public class EmployeeTest
+{
+	public static void main(String[] args) {
+		Employee e1 = new Employee("E101","Gayathri",50000);
+		Employee e2 = new Employee("E101","Gayathri",50000);
+		System.out.println(e1.equals(e2));
+		System.out.println(e1.hashCode()==e2.hashCode());
+		System.out.println(e1);
+	}
+}
