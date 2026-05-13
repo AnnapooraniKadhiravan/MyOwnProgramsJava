@@ -1,0 +1,28 @@
+// Can we override static method ? Ans : we cannot override static method but we can hide it, this concept is called METHOD HIDING
+// Because, we cannot use the keywork override directly with static methods, so using method hiding
+
+class Parent {
+    static void display(){
+    System.out.println("Parent Static");
+    }
+}
+class Child extends Parent {
+// Hides parent methods
+      static void display() {
+      System.out.println("Child Static");
+      }
+}
+class Main {
+    public static void main (Strings[] args){
+    Parent obj = new Child();
+    obj.display(); // takes parent display as the reference points to Parent class
+    // To print child class display, 3 possible ways are there
+    // 1. Using direct class name as it is static method
+    Child.display();
+    //2. Type Casting reference to point Parent to Child
+    ((Child)obj).display();
+    //3. Creating new reference for Child class
+    Child obj1 = new Child();
+    obj1.display();
+  }
+}
