@@ -1,0 +1,64 @@
+// Sealed Interface example
+ sealed interface Shape permits Circle, Rectangle {
+     // when I use public access specifier, its asking to change the file name 
+     //to the sealed interface than main?
+    double getArea(); // Abstract Method
+    String getName(); 
+    
+    //default Method
+    default void printinfo(){
+        System.out.println("Shape: "+getName()+",Area: "+getArea());
+    }
+    
+    //Static Method
+    static String getShapeType(){ 
+        return "Generic Shape";
+    }
+}
+
+// Implementations of the sealed interface
+final class Circle implements Shape {
+    private double radius;
+    public Circle(double radius){
+        this.radius = radius;
+    }
+    @Override
+    public double getArea(){
+        return Math.PI*radius*radius;
+    }
+    @Override
+    public String getName(){
+        return "Circle";
+    }
+}
+
+final class Rectangle implements Shape {
+    private double width;
+    private double height;
+    
+    public Rectangle(double width,double height){
+        this.width = width;
+        this.height = height;
+    }
+    @Override
+    public double getArea(){
+        return width*height;
+    }
+    @Override
+    public String getName(){
+        return "Rectangle";
+    }
+}
+
+//Main Class to demonstrate Usage
+public class Main {
+    public static void main(String[] args){
+        Circle ci = new Circle(35.6);
+        Rectangle rec = new Rectangle(23.3,23.4);
+        
+        ci.printinfo(); // using default Method
+        rec.printinfo(); // using default Method
+        
+        System.out.println("Shape type(Static method):"+Shape.getShapeType());
+    }
+}
