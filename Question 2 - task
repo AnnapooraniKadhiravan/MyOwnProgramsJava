@@ -1,0 +1,47 @@
+/******************************************************************************
+Create a program that keeps track of the number of objects created 
+and displays the count in a function called display()
+
+*******************************************************************************/
+class Laptop{
+    int count=0; // with static 5
+   Laptop(){
+       System.out.println("abc");
+       count++;
+   }
+    public void ram(){
+        System.out.println("16 GB");
+        count++;
+    }
+    public void ssd(){
+        System.out.println("512 SSD");
+        count++;
+    }
+    public void gen(){
+        System.out.println("14th Gen");
+        count++;
+    }
+    public void display(){
+        System.out.println("The count of object created is: "+count++);
+    }
+}
+class Manufracturer extends Laptop{
+   
+    public void brand(){
+        System.out.println("Ausu Vivobook");
+    }
+    
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Laptop obj = new Laptop();
+		obj.ram();
+		obj.ssd();
+		obj.gen();
+		Manufracturer m = new Manufracturer();
+		m.brand();
+		obj.display();
+		
+	}
+}
