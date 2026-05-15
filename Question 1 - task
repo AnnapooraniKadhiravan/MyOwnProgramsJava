@@ -1,0 +1,106 @@
+/*Real-Time Scenario : Smart Home System(main class name).
+we need to model different types of smart devices(lights, cameras, thermostats)
+Core Goal : Define a common contract for all devices (Device)
+Specific Goal : Define a specialized contract for devices that can record audio/video (Smart Recorder)
+Implementation : Create Concrete classes for SmartLight and SecurityCamera*/
+
+interface SmartDevices {
+    void turnOn();
+    void turnOff();
+    
+    default void appliances(){
+        System.out.println("Smart Home Devices");
+    }
+    static void devices(){
+        System.out.println("Smart Devices are lights, camera, thermostats");
+    }
+}
+class Lights implements SmartDevices {
+    
+    public void turnOn(){
+        System.out.println("Turn On the Light ");
+    }
+    
+    public void turnOff(){
+        System.out.println("Turn Off the Light");
+    }
+    
+    public void smartLight(){
+        System.out.println("It works based on voice Assistance or mobile app control");
+    }
+    
+    
+}
+
+class Camera implements SmartDevices {
+    
+    public void turnOn(){
+        System.out.println("Turn On the Camera ");
+    }
+    
+    public void turnOff(){
+        System.out.println("Turn Off the Camera");
+    }
+    
+    public void securityCamera(){
+        System.out.println("Security Camera helps to record each and every moment");
+    }
+    
+    public void smartRecorder(){
+        System.out.println("This smartRecorder can be found in security Camerato record audio and video");
+    }
+    
+}
+
+class Thermostats implements SmartDevices {
+    
+    public void turnOn(){
+        System.out.println("Turn On the Camera ");
+    }
+    
+    public void turnOff(){
+        System.out.println("Turn Off the Camera");
+    }
+}
+
+
+
+class SmartHomeSystem { 
+    public static void main(String[] args){
+        
+        Lights ll = new Lights();
+        System.out.println("Lights");
+        System.out.println("-------------------------");
+        System.out.println();
+        ll.appliances();
+        ll.turnOn();
+        ll.turnOff();
+        ll.smartLight();
+        System.out.println();
+        
+        
+        
+        Camera cc = new Camera();
+        System.out.println("Camera");
+        System.out.println("-------------------------");
+        System.out.println();
+        cc.appliances();
+        cc.turnOn();
+        cc.turnOff();
+        cc.securityCamera();
+        cc.smartRecorder();
+        System.out.println();
+        
+        
+        
+        Thermostats tt = new Thermostats();
+        System.out.println("Thermostats");
+        System.out.println("-------------------------");
+        System.out.println();
+        tt.appliances();
+        tt.turnOn();
+        tt.turnOff();
+        SmartDevices.devices();
+        
+    }
+}
