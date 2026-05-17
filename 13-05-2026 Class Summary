@@ -1,6 +1,6 @@
 // Can we override static method ? Ans : we cannot override static method but we can hide it, this concept is called METHOD HIDING
 // Because, we cannot use the keywork override directly with static methods, so using method hiding
-
+// Dynamic Binding
 class Parent {
     static void display(){
     System.out.println("Parent Static");
